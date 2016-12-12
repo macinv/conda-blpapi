@@ -1,0 +1,24 @@
+package:
+  name: blpapi
+  version: "3.5.5"
+
+source:
+  path: src
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  imports:
+    - blpapi
+
+about:
+  home: http://www.bloomberglabs.com/api/libraries/
+  license: Other, Copyright 2012. Bloomberg Finance L.P.
+  license_file: BLPAPI_LICENSE
+  summary: The Bloomberg API (Python with C++ 3.8.18.1 binary included.)
