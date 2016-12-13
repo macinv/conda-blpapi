@@ -15,8 +15,9 @@ wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_cpp_${BLPAPI_CPP
 mkdir ${PKG_DIR}
 
 # set meta.yaml programmatically
-sed -i "/  version:/c\  version: ${BLPAPI_VERSION}" conda-build/meta.yaml
+sed -i "/  version:/c\  version: \"${BLPAPI_VERSION}\"" conda-build/meta.yaml
 sed -i "/  summary: Python/c\  Python SDK for Bloomberg BLPAPI (with C++ ${BLPAPI_CPP_VERSION} binary included)" conda-build/meta.yaml
+cat conda-build/meta.yaml
 
 # copy the conda build files into the package directory
 cp conda-build/* ${PKG_DIR}/
