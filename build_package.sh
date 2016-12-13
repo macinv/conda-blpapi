@@ -24,7 +24,14 @@ mkdir src
 mv BLPAPI_LICENSE src/BLPAPI_LICENSE
 mkdir src/blpapi_cpp
 
-tar xvf ../blpapi_python_*.tar.gz -C src --strip-components=1
+if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+    tar xvf ../blpapi_python_*.tar.gz -C src --strip-components=1
+else
+    git clone --depth=1 --branch=master https://github.com/macinv/blpapi-py.git blpapi-py
+    rm -rf !$/.git
+    cp -r blpapi-py/* src
+fi
+
 tar xvf ../blpapi_cpp_*.tar.gz -C src/blpapi_cpp --strip-components=1
 
 cd ..
@@ -35,5 +42,5 @@ conda build ${PKG_DIR} --output-folder ${BUILD_DIR}
 
 # upload the package
 anaconda login --user ${CONDA_USER} --password ${CONDA_PASSWORD}
-anaconda upload --force ${BUILD_DIR}/*.tar.bz2
+anaconda upload ${BUILD_DIR}/*.tar.bz2
 anaconda logout
