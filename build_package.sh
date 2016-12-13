@@ -6,7 +6,8 @@ set -e
 PKG_DIR=blpapi
 BUILD_DIR=build
 
-wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_python_${BLPAPI_VERSION}.tar.gz
+# wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_python_${BLPAPI_VERSION}.tar.gz
+wget https://bloomberg.bintray.com/BLPAPI-Experimental-Generic/blpapi_python_${BLPAPI_VERSION}.tar.gz
 wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_cpp_${BLPAPI_CPP_VERSION}-linux.tar.gz
 
 # make package dir
@@ -27,14 +28,7 @@ mkdir src
 mv BLPAPI_LICENSE src/BLPAPI_LICENSE
 mkdir src/blpapi_cpp
 
-if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-    tar xvf ../blpapi_python_*.tar.gz -C src --strip-components=1
-else
-    git clone --depth=1 --branch=master https://github.com/macinv/blpapi-py.git blpapi-py
-    rm -rf !$/.git
-    cp -r blpapi-py/* src
-fi
-
+tar xvf ../blpapi_python_*.tar.gz -C src --strip-components=1
 tar xvf ../blpapi_cpp_*.tar.gz -C src/blpapi_cpp --strip-components=1
 
 cd ..
