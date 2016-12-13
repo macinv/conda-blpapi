@@ -42,5 +42,5 @@ conda build ${PKG_DIR} --output-folder ${BUILD_DIR}
 
 # upload the package
 anaconda login --user ${CONDA_USER} --password ${CONDA_PASSWORD}
-anaconda upload ${BUILD_DIR}/*.tar.bz2
+anaconda upload --force ${BUILD_DIR}/*.tar.bz2
 anaconda logout
