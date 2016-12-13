@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Script to build and upload the blpapi conda package.
+# script to build and upload the blpapi conda package.
 
 set -e
 
@@ -14,12 +14,16 @@ wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_cpp_${BLPAPI_CPP
 # make package dir
 mkdir ${PKG_DIR}
 
-# copy the conda info into the package directory
+# set meta.yaml programmatically
+sed -i "/  version:/c\  version: ${BLPAPI_VERSION}" conda-build/meta.yaml
+sed -i "/  summary: Python/c\  Python SDK for Bloomberg BLPAPI (with C++ ${BLPAPI_CPP_VERSION} binary included)" conda-build/meta.yaml
+
+# copy the conda build files into the package directory
 cp conda-build/* ${PKG_DIR}/
 
 cd ${PKG_DIR}
 
-# unpack the tarfiles into the appropriate locations
+# unpack the tar files into the appropriate locations
 mkdir src
 mv BLPAPI_LICENSE src/BLPAPI_LICENSE
 mkdir src/blpapi_cpp

@@ -21,4 +21,4 @@ about:
   home: http://www.bloomberglabs.com/api/libraries/
   license: Other, Copyright 2012. Bloomberg Finance L.P.
   license_file: BLPAPI_LICENSE
-  summary: The Bloomberg API (Python with C++ 3.8.18.1 binary included.)
+  summary: Python SDK for Bloomberg BLPAPI (with C++ 3.8.18.1 binary included)
