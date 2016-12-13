@@ -5,8 +5,6 @@ set -e
 
 PKG_DIR=blpapi
 BUILD_DIR=build
-BLPAPI_VERSION=3.5.5
-BLPAPI_CPP_VERSION=3.8.18.1
 
 wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_python_${BLPAPI_VERSION}.tar.gz
 wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_cpp_${BLPAPI_CPP_VERSION}-linux.tar.gz
