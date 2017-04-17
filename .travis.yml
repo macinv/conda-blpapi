@@ -10,13 +10,14 @@ env:
     - secure: "tb8FH4tPhcgprfd7NTEBLk/ZA6PMMDmjq4DIsIpubnsxaDEn56fVOkYNtTXMf8FJ8c8UYuW06mVfV0FCTRINLybb19ePK42P0pQoKi1V3WT+BKmWyWpoc4OAHKHZbvS8pvo4eF5vf2MlD4IJ2A9h0k/HYnB/pQquKJPw646CiUi3JwQ31SLuXmhquNlYJ24PlfQpoEO5DqPdHIyHR876s3jTAXgfBLAjWukGeLFmV3P4PZmcd+epDeAUDGY97e+zOyrtbRbQQa1eILiAk0TeqIwtIAkt+6n/kgGsFJG3u3REjSWr1por7cjOkQyC2xQjPbiWIWr+wia9+Jj3f1MbEAqRLnN2f+pwo5fh5bASivko3e+1slpOGd+UnygsD8jGWD7S7LFGQXGkSFhZLDTmKicrjo2u9UAfazGz4EGQdW+6EPkGi4xqZvX9U81bEoSxLmReIhkNvgRXDBRYHazBLpEnwIimpcW01IRRpOfT+D5XbfXQyMgQeXbKPTc8xHUaBuH4TDZT0+e8pR1YrKmRkGK4CzjJ4/Wh+Fytfs4bFhEwwfVVzgVxOfzuasQSptMPY3bsDVEfIEio2w2Y+ruifre6+jASJfUZxqCFm3fVUZfoH+ohsxmTffu7KqciOU+FzK+v7dGT2EdP2Vu4j+eX6vU4G0bjMJZFa4DDIWZswuA="
     - BLPAPI_VERSION=3.9.0
     - BLPAPI_CPP_VERSION=3.8.18.1
+    - CONDA_VERSION=4.3.11
 
 install:
   - sudo apt-get update
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
+      wget https://repo.continuum.io/miniconda/Miniconda2-${CONDA_VERSION}-Linux-x86_64.sh -O miniconda.sh;
     else
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+      wget https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O miniconda.sh;
     fi
   - bash miniconda.sh -b -p $HOME/miniconda
   - export PATH="$HOME/miniconda/bin:$PATH"
