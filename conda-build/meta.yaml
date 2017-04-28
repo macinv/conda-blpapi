@@ -9,6 +9,7 @@ requirements:
   build:
     - python
     - setuptools
+    - libgcc
 
   run:
     - python
