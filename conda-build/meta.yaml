@@ -12,6 +12,7 @@ requirements:
 
   run:
     - python
+    - libgcc
 
 test:
   imports:
