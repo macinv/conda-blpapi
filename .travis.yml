@@ -1,24 +1,23 @@
 language: python
+
 python:
-  - "2.7"
-  - "3.5"
-  - "3.6"
+  - '2.7'
+  - '3.5'
+  - '3.6'
 
 env:
   global:
-    - secure: "OSnefJRzf314MPOlSHQwsh7RAj7mJRmxQXpgJYUi5cTfRs4DqDcYemLVuV4yH7yAt7RAJn2THbdYk86b42CQYqyKsTQWt2B4/Y8Xm9Mn0yUhsFtSajdJeNV28FqsMkSGYBvja48yLdDYIsy+j1KIfU0Ksoe01w01zeTx2XjaCihOq+AHsWu8/s3FlmfAytICXgvrJX4ZmKvQ1YC+LSQEiBWz6Qt4YPwFa4uk44Lxtqv/4C7L6sx4cHEaY4Vy8jndmTMScRDzJdJGfyVQbfCdnd6ihbV0aHJbPudpWJUwVnmt2OG0RhB8LRROqxYUKtFhPRzmdQOzBe6t/4TBUxusYv5LIBg3CXWAg9umsIpaxnVI7Bep7GR5N7w4FBPeYaDeKINRAq6hrebXCxgvso+OKmbXKdpJOhxr0Uzc90ZhZXj3TrUU0l9naNKD3NGWst34jgyqpv15ROjZ7VdRD/Tj05Q45oqVY8n8HqJyBWFqKSeujDLx+TSGtqpUoxBUPV5B8V0MuFqxg50PqnHGQViArL65qKllSwATmaGZjGYctPRXCVia/vU5blwksUNtee4THdddGbU4q3kz4h0mmbvYePnI7o8QmDNvCyyx/gFdHLBf+XssWZLs/naQpWfyl0jKju+COdE4ED21GEdaD1PnToq6riNXkvmsvfykupQvv3g="
-    - secure: "tb8FH4tPhcgprfd7NTEBLk/ZA6PMMDmjq4DIsIpubnsxaDEn56fVOkYNtTXMf8FJ8c8UYuW06mVfV0FCTRINLybb19ePK42P0pQoKi1V3WT+BKmWyWpoc4OAHKHZbvS8pvo4eF5vf2MlD4IJ2A9h0k/HYnB/pQquKJPw646CiUi3JwQ31SLuXmhquNlYJ24PlfQpoEO5DqPdHIyHR876s3jTAXgfBLAjWukGeLFmV3P4PZmcd+epDeAUDGY97e+zOyrtbRbQQa1eILiAk0TeqIwtIAkt+6n/kgGsFJG3u3REjSWr1por7cjOkQyC2xQjPbiWIWr+wia9+Jj3f1MbEAqRLnN2f+pwo5fh5bASivko3e+1slpOGd+UnygsD8jGWD7S7LFGQXGkSFhZLDTmKicrjo2u9UAfazGz4EGQdW+6EPkGi4xqZvX9U81bEoSxLmReIhkNvgRXDBRYHazBLpEnwIimpcW01IRRpOfT+D5XbfXQyMgQeXbKPTc8xHUaBuH4TDZT0+e8pR1YrKmRkGK4CzjJ4/Wh+Fytfs4bFhEwwfVVzgVxOfzuasQSptMPY3bsDVEfIEio2w2Y+ruifre6+jASJfUZxqCFm3fVUZfoH+ohsxmTffu7KqciOU+FzK+v7dGT2EdP2Vu4j+eX6vU4G0bjMJZFa4DDIWZswuA="
+    - secure: OSnefJRzf314MPOlSHQwsh7RAj7mJRmxQXpgJYUi5cTfRs4DqDcYemLVuV4yH7yAt7RAJn2THbdYk86b42CQYqyKsTQWt2B4/Y8Xm9Mn0yUhsFtSajdJeNV28FqsMkSGYBvja48yLdDYIsy+j1KIfU0Ksoe01w01zeTx2XjaCihOq+AHsWu8/s3FlmfAytICXgvrJX4ZmKvQ1YC+LSQEiBWz6Qt4YPwFa4uk44Lxtqv/4C7L6sx4cHEaY4Vy8jndmTMScRDzJdJGfyVQbfCdnd6ihbV0aHJbPudpWJUwVnmt2OG0RhB8LRROqxYUKtFhPRzmdQOzBe6t/4TBUxusYv5LIBg3CXWAg9umsIpaxnVI7Bep7GR5N7w4FBPeYaDeKINRAq6hrebXCxgvso+OKmbXKdpJOhxr0Uzc90ZhZXj3TrUU0l9naNKD3NGWst34jgyqpv15ROjZ7VdRD/Tj05Q45oqVY8n8HqJyBWFqKSeujDLx+TSGtqpUoxBUPV5B8V0MuFqxg50PqnHGQViArL65qKllSwATmaGZjGYctPRXCVia/vU5blwksUNtee4THdddGbU4q3kz4h0mmbvYePnI7o8QmDNvCyyx/gFdHLBf+XssWZLs/naQpWfyl0jKju+COdE4ED21GEdaD1PnToq6riNXkvmsvfykupQvv3g=
+    - secure: tb8FH4tPhcgprfd7NTEBLk/ZA6PMMDmjq4DIsIpubnsxaDEn56fVOkYNtTXMf8FJ8c8UYuW06mVfV0FCTRINLybb19ePK42P0pQoKi1V3WT+BKmWyWpoc4OAHKHZbvS8pvo4eF5vf2MlD4IJ2A9h0k/HYnB/pQquKJPw646CiUi3JwQ31SLuXmhquNlYJ24PlfQpoEO5DqPdHIyHR876s3jTAXgfBLAjWukGeLFmV3P4PZmcd+epDeAUDGY97e+zOyrtbRbQQa1eILiAk0TeqIwtIAkt+6n/kgGsFJG3u3REjSWr1por7cjOkQyC2xQjPbiWIWr+wia9+Jj3f1MbEAqRLnN2f+pwo5fh5bASivko3e+1slpOGd+UnygsD8jGWD7S7LFGQXGkSFhZLDTmKicrjo2u9UAfazGz4EGQdW+6EPkGi4xqZvX9U81bEoSxLmReIhkNvgRXDBRYHazBLpEnwIimpcW01IRRpOfT+D5XbfXQyMgQeXbKPTc8xHUaBuH4TDZT0+e8pR1YrKmRkGK4CzjJ4/Wh+Fytfs4bFhEwwfVVzgVxOfzuasQSptMPY3bsDVEfIEio2w2Y+ruifre6+jASJfUZxqCFm3fVUZfoH+ohsxmTffu7KqciOU+FzK+v7dGT2EdP2Vu4j+eX6vU4G0bjMJZFa4DDIWZswuA=
     - BLPAPI_VERSION=3.9.0
     - BLPAPI_CPP_VERSION=3.8.18.1
     - CONDA_VERSION=4.3.11
 
 install:
   - sudo apt-get update
-  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda2-${CONDA_VERSION}-Linux-x86_64.sh -O miniconda.sh;
-    else
-      wget https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O miniconda.sh;
-    fi
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then wget https://repo.continuum.io/miniconda/Miniconda2-${CONDA_VERSION}-Linux-x86_64.sh
+    -O miniconda.sh; else wget https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh
+    -O miniconda.sh; fi
   - bash miniconda.sh -b -p $HOME/miniconda
   - export PATH="$HOME/miniconda/bin:$PATH"
   - hash -r
@@ -28,4 +27,10 @@ install:
   - conda install anaconda-client
 
 script:
- - bash build_package.sh
+  - bash build_package.sh
+
+notifications:
+  email: true
+  slack:
+    rooms:
+      secure: Q14Mja/kY/vbIEz2QGsQ34py4rJ24nQ5OnoupVvxbr8WCmAa/vIzGZa9scKYiU78SM8kc8puq/OVFb/GWseTVes8aa9noYU3J23zGA5LsRToEVN+OdW9AySlJOmY4bTFYVuKxMbbSrwniXrFMk3mUx2LKGEAdWCUIK0oz49A2TqLxhWkyYXMDWI4bSfV+fVqQCghEY5OO2UYeH8/oI+i7U0LQeoOgPWywO/jTiKr3eKfyX/d4CH72wQuj3LeZsdpyxJyVfOwfteWixAN0emW+uH6kl5LV9QMipCrCqL8MNNKO/KsI8muulbaTyzu7+moM1bmX56Z1g4IDpq04x596ksHq4wfvd14sRb5t7UIWskXvUAQ31dQVLyegojxK/OZG54m925oxxWnj5kIXFDHEF4Q/iS5t8vjAXrR+27r8D5V8itALhnYdm6JlzHfsUUCyyTkYiBe24GHbZbKm1RWm0rjE9009Yefughb6sSU/pGbQQUm0MayShhonMlWKzBeeOaj2ff3Te3ikx5amdj/iyK6v45j9aQq+IxD8CcNo3XXFMO1KHAc1gGfwKps88UwtNUUREwGH1rAvUetbn8ejJeodesPqnWRlcVQ2Oq9lNnN8HJmVBpQNJRKn4FiB5TyusSA1MnFodFsi2JsYBoYaywMBEiDaVH1+E2lkJzeIuo=
