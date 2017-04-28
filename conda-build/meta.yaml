@@ -9,11 +9,11 @@ requirements:
   build:
     - python
     - setuptools
-    - libgcc
+    - libgcc # [not win]
 
   run:
     - python
-    - libgcc
+    - libgcc # [not win]
 
 test:
   imports:
