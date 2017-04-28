@@ -1,0 +1,83 @@
+version: "{build}"
+
+environment:
+  global:
+    # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
+    # /E:ON and /V:ON options are not enabled in the batch script intepreter
+    # See: http://stackoverflow.com/a/13751649/163740
+    CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\tools\\appveyor\\run_with_env.cmd"
+
+    BLPAPI_VERSION: "3.9.0"
+    BLPAPI_CPP_VERSION: "3.10.7.1"
+
+    PKG_DIR: "blpapi"
+    BUILD_DIR: "build"
+
+    CONDA_USER: "macinv"
+    CONDA_PASSWORD:
+      secure: Cdj8QMwqksaP7AA/OII7+cKhcwoDz5SpWYM0A5clnf4=
+
+  matrix:
+    - PYTHON: "C:\\Miniconda-x64"
+      PYTHON_VERSION: "2.7"
+      PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Miniconda35-x64"
+      PYTHON_VERSION: "3.5"
+      PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Miniconda36-x64"
+      PYTHON_VERSION: "3.6"
+      PYTHON_ARCH: "64"
+
+platform:
+  - x64
+
+init:
+  - ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH% %HOME% %BLPAPI_VERSION% %BLPAPI_CPP_VERSION%
+
+install:
+  # https://www.appveyor.com/docs/installed-software#python
+  - if "%PYTHON_VERSION%" == "3.5" set "BASE_PYTHON_VERSION=35"
+  - if "%PYTHON_VERSION%" == "3.6" set "BASE_PYTHON_VERSION=36"
+  - if "%PYTHON_ARCH%" == "64" set "ARCH_LABEL=-x64"
+  # These are already installed on appveyor.  Update them.
+  - set "CONDA_ROOT=C:\Miniconda%BASE_PYTHON_VERSION%%ARCH_LABEL%"
+  - set "PATH=%CONDA_ROOT%;%CONDA_ROOT%\Scripts;%CONDA_ROOT%\Library\bin;%PATH%"
+
+  - python -c "import sys; print(sys.version)"
+  - python -c "import sys; print(sys.executable)"
+  - python -c "import sys; print(sys.prefix)"
+  - python --version
+
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda install conda-build
+  - conda install anaconda-client
+  - conda build --version
+  # needed for python2.7 x64
+  - if "%PYTHON_VERSION%" == "2.7" conda install -c conda-forge -n root --yes --quiet vs2008_express_vc_python_patch
+  - if "%PYTHON_VERSION%" == "2.7" call setup_x64.bat
+  - if "%PYTHON_VERSION%" == "2.7" copy "C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\bin\vcvars64.bat" "C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\bin\amd64\vcvarsamd64.bat"
+
+build_script:
+  # download the official packages
+  - appveyor DownloadFile https://bloomberg.bintray.com/BLPAPI-Experimental-Generic/blpapi_python_%BLPAPI_VERSION%.zip
+  - appveyor DownloadFile https://bloomberg.bintray.com/BLPAPI-Experimental-Generic/blpapi_cpp_%BLPAPI_CPP_VERSION%-windows.zip
+
+  - bash prepare_win_package.sh
+  - conda build %PKG_DIR% --output-folder %BUILD_DIR%
+
+artifacts:
+  - path: '%BUILD_DIR%\win-64\*.tar.bz2'
+
+deploy:
+  - provider: Script
+    script: win_deploy.bat
+    on:
+      branch: master
+
+notifications:
+  - provider: Slack
+    incoming_webhook:
+      secure: z7dkfVS84Jx2feuuqixWQfgQpYk7WAzQ7RunTIdEfyVC0UN1F0KYODRJeYXubNIFmqZai6f+ArsuhGXoHiKcm3rFfQ4KQFpyGpbHANZ6om4=
