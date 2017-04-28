@@ -6,8 +6,11 @@ set -e
 PKG_DIR=blpapi
 BUILD_DIR=build
 
-# wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_python_${BLPAPI_VERSION}.tar.gz
-wget https://bloomberg.bintray.com/BLPAPI-Experimental-Generic/blpapi_python_${BLPAPI_VERSION}.tar.gz
+if [[ "$BLPAPI_VERSION" == "3.5.5" ]]; then
+    wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_python_${BLPAPI_VERSION}.tar.gz
+else
+    wget https://bloomberg.bintray.com/BLPAPI-Experimental-Generic/blpapi_python_${BLPAPI_VERSION}.tar.gz
+fi
 wget https://bloomberg.bintray.com/BLPAPI-Stable-Generic/blpapi_cpp_${BLPAPI_CPP_VERSION}-linux.tar.gz
 
 # make package dir
