@@ -5,4 +5,9 @@
 [![Anaconda-Server Badge](https://anaconda.org/macinv/blpapi/badges/version.svg)](https://anaconda.org/macinv/blpapi)
 
 
-Automatic builds for blpapi as conda packages
+Automatically build conda packages for BLPAPI, the open sourced API from Bloomberg.  
+
+Currently the following Python versions are supported:
+* 2.7
+* 3.5
+* 3.6

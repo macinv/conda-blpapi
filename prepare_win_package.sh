@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# script to build and upload the blpapi conda package.
+# Script to prepare the files needed to build the conda package for the Windows environment. Note that the downloads and
+# the build steps are done appveyor.yml
 
 set -e
 
