@@ -71,11 +71,10 @@ build_script:
 artifacts:
   - path: '%BUILD_DIR%\win-64\*.tar.bz2'
 
-deploy:
-  - provider: Script
-    script: win_deploy.bat
-    on:
-      branch: master
+deploy_script:
+  - if "%APPVEYOR_REPO_BRANCH%" == "master" anaconda login --user %CONDA_USER% --password %CONDA_PASSWORD%
+  - if "%APPVEYOR_REPO_BRANCH%" == "master" anaconda upload --force %BUILD_DIR%\win-64\*.tar.bz2
+  - if "%APPVEYOR_REPO_BRANCH%" == "master" anaconda logout
 
 notifications:
   - provider: Slack
