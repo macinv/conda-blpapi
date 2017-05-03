@@ -15,7 +15,7 @@ environment:
 
     CONDA_USER: "macinv"
     CONDA_PASSWORD:
-      secure: Cdj8QMwqksaP7AA/OII7+cKhcwoDz5SpWYM0A5clnf4=
+      secure: 5ilfeQrsL5WVE5qK3HmUKUI4QkezEX2HmK38geBwMz0=
 
   matrix:
     - PYTHON: "C:\\Miniconda-x64"
@@ -79,4 +79,4 @@ deploy_script:
 notifications:
   - provider: Slack
     incoming_webhook:
-      secure: z7dkfVS84Jx2feuuqixWQfgQpYk7WAzQ7RunTIdEfyVC0UN1F0KYODRJeYXubNIFmqZai6f+ArsuhGXoHiKcm3rFfQ4KQFpyGpbHANZ6om4=
+      secure: dfhCEz7Z435cnbDSt4QsHhT7L4oK03Nm+oUnz5JmSJ+Zc5oTTbLA6CSAadFyYuNA6QRKXKd2j74+9qekDzsTuGCpGVrlvwtLI6NZor8Tsew=
