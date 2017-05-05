@@ -9,5 +9,6 @@ Automatically build conda packages for BLPAPI, the open sourced API from Bloombe
 
 Currently the following Python versions are supported:
 * 2.7
+* 3.4
 * 3.5
 * 3.6
