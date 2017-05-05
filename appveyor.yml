@@ -22,7 +22,7 @@ environment:
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "64"
 
-    - PYTHON: "C:\\Miniconda34-x64"
+    - PYTHON: "C:\\Miniconda3-x64"
       PYTHON_VERSION: "3.4"
       PYTHON_ARCH: "64"
 
@@ -42,7 +42,7 @@ init:
 
 install:
   # https://www.appveyor.com/docs/installed-software#python
-  - if "%PYTHON_VERSION%" == "3.4" set "BASE_PYTHON_VERSION=34"
+  - if "%PYTHON_VERSION%" == "3.4" set "BASE_PYTHON_VERSION=3"
   - if "%PYTHON_VERSION%" == "3.5" set "BASE_PYTHON_VERSION=35"
   - if "%PYTHON_VERSION%" == "3.6" set "BASE_PYTHON_VERSION=36"
   - if "%PYTHON_ARCH%" == "64" set "ARCH_LABEL=-x64"
